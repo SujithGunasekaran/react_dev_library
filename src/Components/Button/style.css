@@ -1,0 +1,86 @@
+.bt_button {
+    border: none;
+    padding: 7px 15px;
+    font-family: 'Open Sans';
+    font-weight: 500;
+    font-size: .930rem;
+    cursor: pointer;
+    transition: 0.4s all ease-in-out;
+}
+
+.bt_button.rounded {
+    border-radius: 8px;
+}
+
+.bt_button.sharp {
+    border-radius: 0px;
+}
+
+.bt_button:disabled {
+    background-color: rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 0.3) !important;
+    border: none !important;
+    cursor: default;
+    pointer-events: none;
+}
+
+.outlined.danger,
+.outlined.primary,
+.outlined.success {
+    background-color: transparent;
+}
+
+.outlined.success {
+    color: rgb(102, 187, 106);
+}
+
+.outlined.success:hover {
+    color: rgb(102, 187, 106, 0.2);
+}
+
+.outlined.primary {
+    color: #1F6FEB;
+}
+
+.outlined.primary:hover {
+    background-color: rgb(31, 111, 235, 0.2);
+}
+
+
+.outlined.danger {
+    color: rgb(244, 67, 54);
+}
+
+.outlined.danger:hover {
+    color: rgb(244, 67, 54, 0.2);
+}
+
+.primary {
+    background-color: #1F6FEB;
+    border: 1px solid #1F6FEB;
+    color: white;
+}
+
+.primary:hover {
+    background-color: #1c66d4;
+}
+
+.success {
+    background-color: rgb(102, 187, 106);
+    border: 1px solid rgb(102, 187, 106);
+    color: white;
+}
+
+.success:hover {
+    background-color: rgb(94, 173, 97);
+}
+
+.danger {
+    background-color: rgb(244, 67, 54);
+    border: 1px solid rgb(244, 67, 54);
+    color: white;
+}
+
+.danger:hover {
+    background-color: rgb(209, 59, 48);
+}
