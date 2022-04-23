@@ -1,9 +1,12 @@
 .bt_button {
     border: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
     padding: 7px 15px;
     font-family: 'Open Sans';
     font-weight: 500;
-    font-size: .930rem;
+    font-size: .9rem;
     cursor: pointer;
     transition: 0.4s all ease-in-out;
 }
@@ -35,7 +38,7 @@
 }
 
 .outlined.success:hover {
-    color: rgb(102, 187, 106, 0.2);
+    background-color: rgb(102, 187, 106, 0.2);
 }
 
 .outlined.primary {
@@ -52,7 +55,7 @@
 }
 
 .outlined.danger:hover {
-    color: rgb(244, 67, 54, 0.1);
+    background-color: rgb(244, 67, 54, 0.1);
 }
 
 .primary {

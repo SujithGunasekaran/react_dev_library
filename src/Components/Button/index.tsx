@@ -8,8 +8,8 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     shape?: 'rounded' | 'sharp',
     disabled?: boolean,
     className?: string,
-    labelIcon?: ReactElement,
     children: string | ReactElement,
+    onClick: React.MouseEventHandler
 }
 
 
@@ -23,12 +23,13 @@ const Button: React.FC<ButtonProps> = (props) => {
         type = "button",
         shape = "rounded",
         disabled = false,
-        className = ''
+        className = '',
+        onClick
     } = props;
 
     return (
         <button
-            {...props}
+            onClick={(e) => onClick(e)}
             type={type}
             disabled={disabled}
             className={`${className} bt_button ${variant} ${mode} ${shape}`}
