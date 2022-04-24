@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React from 'react';
 import './style.css';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -8,7 +8,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     shape?: 'rounded' | 'sharp',
     disabled?: boolean,
     className?: string,
-    children: string | ReactElement,
+    children: string | React.ReactElement,
     onClick: React.MouseEventHandler
 }
 

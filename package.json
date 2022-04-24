@@ -1,6 +1,6 @@
 {
   "name": "react_dev_library",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "A Collection of react library to make our work simple",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
