@@ -22,4 +22,4 @@ npm install react_dev_library
 
 ## App Info
 
-Version : 0.0.3
+Version : 0.1.4
