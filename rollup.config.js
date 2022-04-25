@@ -5,12 +5,14 @@ import { terser } from "rollup-plugin-terser";
 import external from "rollup-plugin-peer-deps-external";
 import postcss from "rollup-plugin-postcss";
 import dts from "rollup-plugin-dts";
+import babel from "@rollup/plugin-babel";
 
 const packageJson = require("./package.json")
 
 export default [
     {
         input: "src/index.ts",
+        external: ['react', 'react-dom'],
         output: [
             {
                 file: packageJson.main,
@@ -27,10 +29,11 @@ export default [
         plugins: [
             external(),
             resolve(),
-            commonjs(),
+            commonjs({ include: 'node_modules/**' }),
+            babel({ exclude: 'node_modules/**' }),
             typescript({ tsconfig: "./tsconfig.json" }),
             postcss(),
-            terser(),
+            terser()
         ]
     },
     {
