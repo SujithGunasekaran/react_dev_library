@@ -19,6 +19,7 @@ npm install react_dev_library
 ## Components
 
  - [Button](https://github.com/SujithGunasekaran/react_dev_library/blob/main/src/Components/Button/README.md)
+ - [Pagination](https://github.com/SujithGunasekaran/react_dev_library/blob/main/src/Components/Pagination/README.md)
 
 ## App Info
 
