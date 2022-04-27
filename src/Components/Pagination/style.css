@@ -7,63 +7,87 @@
     --dev-pg-text-highlight: #0347b1;
 }
 
-.dev_pg_header_pagination_container {
+.dev_pg_pagination_container {
     display: flex;
     align-items: center;
     padding: 0px;
     border-radius: 5px;
-    border: 1px solid var(--dev-pg-card-border);
 }
 
-.dev_pg_header_pagination_icon {
-    padding: 5px 8px 5px 8px;
+.dev_pg_pagination_icon {
+    padding: 1px 8px 5px 8px;
+    border-radius: 16px;
     cursor: pointer;
-    border-right: 1px solid var(--dev-pg-card-border);
     transition: 0.4s all ease-in-out;
 }
 
-.dev_pg_header_pagination_icon:hover {
+.dev_pg_pagination_icon:hover {
     background-color: var(--dev-pg-text-hover);
 }
 
-.dev_pg_header_pagination_icon.disabled,
-.dev_pg_header_pagination_icon.disabled .icon {
+.dev_pg_pagination_icon.dark:hover {
+    background-color: rgb(3, 71, 177, 0.3);
+}
+
+
+.dev_pg_pagination_icon.disabled,
+.dev_pg_pagination_icon.disabled .icon {
     cursor: none;
     color: var(--dev-pg-text-white-five);
     pointer-events: none;
 }
 
-.dev_pg_header_pagination_icon .icon {
+.dev_pg_pagination_icon.dark.disabled,
+.dev_pg_pagination_icon.dark.disabled .icon {
+    color: #404040;
+}
+
+.dev_pg_pagination_icon .icon {
     color: var(--dev-pg-text-highlight);
     width: 16px;
     height: 16px;
     transition: 0.4s all ease-in-out;
 }
 
-.dev_pg_header_pagination_icon:hover .icon {
+.dev_pg_pagination_icon:hover .icon {
     color: var(--dev-pg-text-highlight);
 }
 
-.dev_pg_header_pagination_number {
+.dev_pg_pagination_icon.dark:hover .icon {
+    color: #bed1ef;
+}
+
+.dev_pg_pagination_number {
+    display: inline-flex;
+    justify-content: center;
+    border-radius: 16px;
+    min-width: 32px;
+    letter-spacing: 0.01071em;
+    line-height: 1.43;
+    font-size: 0.875rem;
+    height: 32px;
     padding: 5px 10px 5px 10px;
-    border-right: 1px solid var(--dev-pg-card-border);
     color: var(--dev-pg-text-white-two);
     cursor: pointer;
     transition: 0.4s all ease-in-out;
 }
 
-.dev_pg_header_pagination_number.active {
+.dev_pg_pagination_number.dark {
+    color: rgb(133 130 130);
+}
+
+
+.dev_pg_pagination_number.active {
     color: var(--dev-pg-text-white-one);
     background-color: var(--dev-pg-text-highlight);
 }
 
-.dev_pg_header_pagination_number.active:hover {
+.dev_pg_pagination_number.active:hover {
     color: var(--dev-pg-text-white-one);
     background-color: var(--dev-pg-text-highlight);
 }
 
-
-.dev_pg_header_pagination_number:hover {
+.dev_pg_pagination_number:hover {
     color: var(--dev-pg-text-highlight);
     background-color: var(--dev-pg-text-hover);
 }

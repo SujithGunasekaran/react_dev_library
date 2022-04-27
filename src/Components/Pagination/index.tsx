@@ -6,6 +6,8 @@ interface PaginationProps {
     itemPerPage: number,
     paginationCss?: string,
     numberListPerSet?: number,
+    theme?: 'light' | 'dark',
+    varient?: 'fill' | 'outlined',
     selectedPage: (pageNumber: number) => void
 }
 
@@ -17,16 +19,18 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         totalLength = 0,
         itemPerPage = 0,
         paginationCss = '',
+        theme = "light",
         numberListPerSet = 5,
         selectedPage
     } = props;
 
     // state
-    const [totalPageNumber, setTotalPageNumber] = React.useState(0);
-    const [totalPageSets, setTotalPageSets] = React.useState(0);
-    const [currentPageNumber, setCurrentPageNumber] = React.useState(1);
-    const [currentItem, setCurrentItem] = React.useState(1);
+    const [totalPageNumber, setTotalPageNumber] = React.useState<number>(0);
+    const [totalPageSets, setTotalPageSets] = React.useState<number>(0);
+    const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(1);
+    const [currentItem, setCurrentItem] = React.useState<number>(1);
     const [numberPerPage, setNumberPerPage] = React.useState<number>(numberListPerSet || 5);
+    const [selectedTheme, setSelectedTheme] = React.useState<string>(theme);
 
 
     React.useEffect(() => {
@@ -37,8 +41,15 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
 
     React.useEffect(() => {
+        setCurrentItem(1);
+        setCurrentPageNumber(1);
         setNumberPerPage(numberListPerSet);
     }, [numberListPerSet])
+
+
+    React.useEffect(() => {
+        setSelectedTheme(theme);
+    }, [theme])
 
 
     const handlePageNumberClick = (pageNumber: number) => {
@@ -85,7 +96,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         for (let i = startIndex; i <= endIndex; i++) {
             if (i > totalPageNumber) continue;
             itemList.push(
-                <div key={i} className={`dev_pg_header_pagination_number ${currentItem === i ? 'active' : ''}`} onClick={() => handlePageNumberClick(i)}>{i}</div>
+                <div key={i} className={`dev_pg_pagination_number ${selectedTheme} ${currentItem === i ? 'active' : ''}`} onClick={() => handlePageNumberClick(i)}>{i}</div>
             )
         }
         return itemList;
@@ -93,25 +104,25 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
     return (
         <React.Fragment>
-            <div className={`${paginationCss} dev_pg_header_pagination_container`}>
-                <div className={`dev_pg_header_pagination_icon ${currentPageNumber === 1 ? 'disabled' : ''}`} onClick={() => previousPageSet()}>
+            <div className={`${paginationCss} dev_pg_pagination_container`}>
+                <div className={`dev_pg_pagination_icon ${selectedTheme} ${currentPageNumber === 1 ? 'disabled' : ''}`} onClick={() => previousPageSet()}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className={`bi bi-chevron-double-left icon`} viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                         <path fillRule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                     </svg>
                 </div>
-                <div className={`dev_pg_header_pagination_icon ${currentItem === 1 ? 'disabled' : ''}`} onClick={() => previousPage()}>
+                <div className={`dev_pg_pagination_icon ${selectedTheme} ${currentItem === 1 ? 'disabled' : ''}`} onClick={() => previousPage()}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className={`bi bi-chevron-left icon`} viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
                     </svg>
                 </div>
                 {pageItem ? pageItem : ''}
-                <div className={`dev_pg_header_pagination_icon ${currentItem === totalPageNumber ? 'disabled' : ''}`} onClick={() => nextPage()}>
+                <div className={`dev_pg_pagination_icon ${selectedTheme} ${currentItem === totalPageNumber ? 'disabled' : ''}`} onClick={() => nextPage()}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className={`bi bi-chevron-right icon`} viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                     </svg>
                 </div>
-                <div className={`dev_pg_header_pagination_icon ${currentPageNumber === totalPageSets ? 'disabled' : ''}`} onClick={() => nextPageSet()}>
+                <div className={`dev_pg_pagination_icon ${selectedTheme} ${currentPageNumber === totalPageSets ? 'disabled' : ''}`} onClick={() => nextPageSet()}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className={`bi bi-chevron-double-right icon`} viewBox="0 0 16 16">
                         <path fillRule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
                         <path fillRule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
